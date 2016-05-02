@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.get('*', function(req, res) {
+  res.sendFile(process.cwd() + '/public/views/index.html');
+});
+
 var PORT = process.env.PORT || 8000;
 
 app.listen(PORT, function() {
